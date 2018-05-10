@@ -664,5 +664,25 @@ function get_branch_office_manage_table_headers()
 	return transform_headers($headers);
 }
 
+/*
+Get the html data row for the branch office
+*/
+function get_branch_office_data_row($branch)
+{
+	$CI =& get_instance();
+	$controller_name = strtolower(get_class($CI));
+
+	return array (
+		'branch_office.branch_office_id' => $branch->branch_office_id,
+		'branch_office_name' => $branch->branch_office_name,
+		//'first_name' => $branch->first_name,
+		//'email' => empty($branch->email) ? '' : mailto($branch->email, $branch->email),
+		//'phone_number' => $branch->phone_number,
+		//'messages' => empty($branch->phone_number) ? '' : anchor("Messages/view/$branch->person_id", '<span class="glyphicon glyphicon-phone"></span>',
+		//	array('class'=>'modal-dlg', 'data-btn-submit' => $CI->lang->line('common_submit'), 'title'=>$CI->lang->line('messages_sms_send'))),
+		'edit' => anchor($controller_name."/view/$branch->person_id", '<span class="glyphicon glyphicon-edit"></span>',
+			array('class'=>'modal-dlg', 'data-btn-submit' => $CI->lang->line('common_submit'), 'title'=>$CI->lang->line($controller_name.'_update'))
+	));
+}
 
 ?>
