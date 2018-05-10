@@ -4,6 +4,7 @@ Introduction
 
 Open Source Point of Sale is a web based point of sale system.
 The main features are:
+* Multi-branch office(New)
 * Stock management (Items and Kits)
 * VAT, customer and multi tiers taxation
 * Sale register with transactions logging
