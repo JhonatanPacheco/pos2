@@ -58,7 +58,12 @@ class Branch_Office extends Secure_Controller
 	*/
 	public function view($branch_office_id = -1)
 	{
-		
+		$branch_office_info = $this->Branch_office->get_info($branch_office_id);
+		foreach(get_object_vars($branch_office_info) as $property => $value)
+		{
+			$branch_office_info->$property = $this->xss_clean($value);
+		}
+		$data['branch_office_info'] = $branch_office_info;
 
 		$this->load->view('branch_office/form', $data);
 	}
