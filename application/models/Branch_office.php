@@ -73,5 +73,32 @@ class Branch_office extends CI_Model
 
 		return $suggestions;
 	}
+
+	/*
+	Gets total of rows
+	*/
+	public function get_total_rows()
+	{
+		$this->db->from('branch_office');
+		//$this->db->where('active', 1);
+
+		return $this->db->count_all_results();
+	}
+	
+	/*
+	Gets information about a particular employee
+	*/
+	public function get_info($branch_office_id)
+	{
+		$this->db->from('branch_office');
+		
+		$this->db->where('branch_office_id', $branch_office_id);
+		$query = $this->db->get();
+
+		if($query->num_rows() == 1)
+		{
+			return $query->row();
+		}
+	}
 }
 ?>
