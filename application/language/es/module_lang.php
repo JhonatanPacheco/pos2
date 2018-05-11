@@ -39,3 +39,6 @@ $lang["module_taxes_desc"] = "Configurar Impuestos de Ventas.";
 
 $lang["module_branch_office"] = "Sucursales";
 $lang["module_branch_office_desc"] = "Agregar, Actualizar, Borrar y Buscar Sucursales.";
+
+$lang["module_branch_managers"] = "Administradores Sucursales";
+$lang["module_branch_managers_desc"] = "Agregar, Actualizar, Borrar y Buscar Sucursales.";

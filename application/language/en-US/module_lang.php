@@ -35,3 +35,10 @@ $lang["module_suppliers"] = "Suppliers";
 $lang["module_suppliers_desc"] = "Add, Update, Delete, and Search Suppliers.";
 $lang["module_taxes"] = "Taxes";
 $lang["module_taxes_desc"] = "Configure Sales Taxes.";
+
+
+$lang["module_branch_office"] = "Sucursales";
+$lang["module_branch_office_desc"] = "Agregar, Actualizar, Borrar y Buscar Sucursales.";
+
+$lang["module_branch_managers"] = "Administradores Sucursales";
+$lang["module_branch_managers_desc"] = "Agregar, Actualizar, Borrar y Buscar Sucursales.";

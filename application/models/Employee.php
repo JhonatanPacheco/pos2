@@ -87,6 +87,12 @@ class Employee extends Person
 		return $this->db->get();
 	}
 
+	
+	public function saveBanchManager(&$person_data, $employee_data, &$grants_data, $employee_id = FALSE){
+		$employee_data['branch_office_admin']=1;
+		$this->save_employee($person_data, $employee_data, $grants_data, $employee_id);
+	}
+	
 	/*
 	Inserts or updates an employee
 	*/

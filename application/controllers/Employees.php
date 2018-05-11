@@ -14,6 +14,7 @@ class Employees extends Persons
 	*/
 	public function search()
 	{
+		
 		$search = $this->input->get('search');
 		$limit  = $this->input->get('limit');
 		$offset = $this->input->get('offset');
@@ -105,6 +106,7 @@ class Employees extends Persons
 			'zip' => $this->input->post('zip'),
 			'country' => $this->input->post('country'),
 			'comments' => $this->input->post('comments'),
+			
 		);
 
 		$grants_array = array();
@@ -129,7 +131,8 @@ class Employees extends Persons
 				'password' 	=> password_hash($this->input->post('password'), PASSWORD_DEFAULT),
 				'hash_version' 	=> 2,
 				'language_code' => $exploded[0],
-				'language' 	=> $exploded[1]
+				'language' 	=> $exploded[1],
+				'branch_office_id' => $this->Employee->get_logged_in_employee_info()->branch_office_id
 			);
 		}
 		else //Password not changed

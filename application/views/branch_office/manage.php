@@ -26,6 +26,7 @@ $(document).ready(function()
 		});
 		location.href = "mailto:" + recipients.join(",");
 });
+});
 </script>
 
 <div id="title_bar" class="btn-toolbar print_hide">

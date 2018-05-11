@@ -7,6 +7,18 @@
 		<li class="active" role="presentation">
 			<a data-toggle="tab" href="#branch_office_basic_info"><?php echo $this->lang->line("branch_office_basic_information"); ?></a>
 		</li>
+		<li  role="presentation">
+			<a data-toggle="tab" href="#branch_office_general_data"><?php echo $this->lang->line("branch_office_general_data"); ?></a>
+		</li>
+		<li  role="presentation">
+			<a data-toggle="tab" href="#branch_office_fiscal_data"><?php echo $this->lang->line("branch_office_fiscal_data"); ?></a>
+		</li>
+		<li  role="presentation">
+			<a data-toggle="tab" href="#branch_office_advanced_data"><?php echo $this->lang->line("branch_office_advanced_data"); ?></a>
+		</li>
+		<li  role="presentation">
+			<a data-toggle="tab" href="#branch_office_admin_data"><?php echo $this->lang->line("branch_office_admin_data"); ?></a>
+		</li>
 		
 	</ul>
 
@@ -25,7 +37,7 @@
 					</div>
 				</div>
 				<div class="form-group form-group-sm">	
-					<?php echo form_label($this->lang->line('common_active'), 'active', !empty($basic_version) ? array('class'=>'required control-label col-xs-3') : array('class'=>'control-label col-xs-3')); ?>
+					<?php echo form_label($this->lang->line('branch_office_active'), 'active', !empty($basic_version) ? array('class'=>'required control-label col-xs-3') : array('class'=>'control-label col-xs-3')); ?>
 					<div class="col-xs-4">
 						<label class="radio-inline">
 							<?php echo form_radio(array(
@@ -33,23 +45,31 @@
 									'type'=>'radio',
 									'id'=>'active',
 									'value'=>1,
-									'checked'=>$branch_office_info->active === '1')
-									); ?> <?php echo $this->lang->line('common_yes'); ?>
+									'checked'=>$branch_office_info->gender === '1')
+									); ?> <?php echo $this->lang->line('branch_office_yes'); ?>
 						</label>
 						<label class="radio-inline">
 							<?php echo form_radio(array(
-									'name'=>'activve',
+									'name'=>'active',
 									'type'=>'radio',
 									'id'=>'active',
 									'value'=>0,
-									'checked'=>$branch_office_info->active === '0')
-									); ?> <?php echo $this->lang->line('common_no'); ?>
+									'checked'=>$branch_office_info->gender === '0')
+									); ?> <?php echo $this->lang->line('branch_office_no'); ?>
 						</label>
 
 					</div>
 				</div>
 			</fieldset>
 		</div>
+		<div class="tab-pane fade in" id="branch_office_general_data">2
+		</div>
+		<div class="tab-pane fade in" id="branch_office_fiscal_data">3
+		</div>			
+		<div class="tab-pane fade in" id="branch_office_advanced_data">4
+		</div>
+		<div class="tab-pane fade in" id="branch_office_admin_data">5
+		</div>				
 	</div>
 <?php echo form_close(); ?>
 
@@ -87,10 +107,10 @@ $(document).ready(function()
 		messages: 
 		{
 			
-			username:
+			branch_office_name:
 			{
-				required: "<?php echo $this->lang->line('branch_office_username_required'); ?>",
-				minlength: "<?php echo $this->lang->line('branch_office_username_minlength'); ?>"
+				required: "<?php echo $this->lang->line('branch_office_name_required'); ?>",
+				minlength: "<?php echo $this->lang->line('branch_office_name_minlength'); ?>"
 			}
 		}
 	}, form_support.error));
