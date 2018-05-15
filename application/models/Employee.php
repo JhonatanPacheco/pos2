@@ -90,7 +90,7 @@ class Employee extends Person
 	
 	public function saveBanchManager(&$person_data, $employee_data, &$grants_data, $employee_id = FALSE){
 		$employee_data['branch_office_admin']=1;
-		$this->save_employee($person_data, $employee_data, $grants_data, $employee_id);
+		return $this->save_employee($person_data, $employee_data, $grants_data, $employee_id);
 	}
 	
 	/*
