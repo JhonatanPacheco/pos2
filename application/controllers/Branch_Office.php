@@ -80,14 +80,14 @@ class Branch_office extends Secure_Controller
 			'branch_office_name' => $branch_office_name
 		);
 		if($this->BranchOffice->save_branch_office($branch_office_data,$branch_office_id)){
-			// New employee
+			// New branch office
 			if($branch_office_id == -1)
 			{
 				echo json_encode(array('success' => TRUE,
 								'message' => $this->lang->line('employees_successful_adding') . ' ' . $branch_office_name . ' ' . $last_name,
 								'id' => $this->xss_clean($branch_office_data['branch_office_id'])));
 			}
-			else // Existing employee
+			else // Existing brach office
 			{
 				echo json_encode(array('success' => TRUE,
 								'message' => $this->lang->line('employees_successful_updating') . ' ' . $branch_office_name . ' ' . $last_name,
