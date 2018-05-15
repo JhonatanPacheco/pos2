@@ -98,6 +98,7 @@ class BranchManager extends Person
 	*/
 	public function save_employee(&$person_data, &$employee_data, &$grants_data, $employee_id = FALSE)
 	{
+		//This is to know that is a branch manager
 		$employee_data['branch_office_admin']=1;
 		$success = FALSE;
 
