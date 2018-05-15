@@ -163,5 +163,22 @@ class BranchOffice extends CI_Model
 
 		return ($this->db->get()->num_rows() == 1);
 	}
+
+	public function getAllBranchOffices(){
+		$suggestions = array();
+		$this->db->select('branch_office_id as id, branch_office_name as value');
+		$this->db->from('branch_office');
+		
+		$this->db->where('deleted', 0);
+		$this->db->order_by('branch_office_id', 'asc');
+		
+		foreach($this->db->get()->result_array()  as $r)
+		{
+			$suggestions[$r['id']]=$r['value'];//	$val->value;//array('value' => $row->branch_office_id, 'label' => $row->branch_office_name);
+		}
+		
+		return $suggestions;
+	}	
+		
 }
 ?>

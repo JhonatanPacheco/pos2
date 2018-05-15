@@ -77,7 +77,7 @@ class Branch_managers extends Persons
 		}
 		$data['all_subpermissions'] = $permissions;
 
-		$this->load->view('employees/form', $data);
+		$this->load->view('branch_managers/form', $data);
 	}
 
 	/*
@@ -131,7 +131,7 @@ class Branch_managers extends Persons
 				'hash_version' 	=> 2,
 				'language_code' => $exploded[0],
 				'language' 	=> $exploded[1],
-				'branch_office_id' => $this->Employee->get_logged_in_employee_info()->branch_office_id
+				'branch_office_id' =>$this->input->post('branch_office_id')//, $this->Employee->get_logged_in_employee_info()->branch_office_id
 			);
 		}
 		else //Password not changed
@@ -140,7 +140,8 @@ class Branch_managers extends Persons
 			$employee_data = array(
 				'username' 	=> $this->input->post('username'),
 				'language_code'	=> $exploded[0],
-				'language' 	=> $exploded[1]
+				'language' 	=> $exploded[1],
+				'branch_office_id' =>$this->input->post('branch_office_id')//, $this->Employee->get_logged_in_employee_info()->branch_office_id
 			);
 		}
 

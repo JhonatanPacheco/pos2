@@ -24,7 +24,7 @@
 
 		<div class="tab-pane" id="employee_login_info">
 			<fieldset>
-				<div class="form-group form-group-sm">	
+				<div class="form-group form-group-sm">
 					<?php echo form_label($this->lang->line('employees_username'), 'username', array('class'=>'required control-label col-xs-3')); ?>
 					<div class='col-xs-8'>
 						<div class="input-group">
@@ -96,6 +96,7 @@
 						</div>
 					</div>
 				</div>
+
 			</fieldset>
 		</div>
 

@@ -96,6 +96,27 @@
 						</div>
 					</div>
 				</div>
+				
+				<div class="form-group form-group-sm">
+					<?php echo form_label($this->lang->line('branch_office'), 'language', array('class' => 'control-label col-xs-3')); ?>
+					<div class='col-xs-8'>
+						<div class="input-group">
+							<?php 
+								$branch_office_list = $branch_office;
+								 
+								$branch_office_list	[''] = $this->lang->line('branch_office_no_select');
+								
+								echo form_dropdown(
+									'branch_office_id',
+									$branch_office_list,
+									($person_info->branch_office_id ? $person_info->branch_office_id :''),
+									array('class' => 'form-control input-sm')
+									);
+							?>
+						</div>
+					</div>
+				</div>
+								
 			</fieldset>
 		</div>
 
@@ -196,7 +217,7 @@ $(document).ready(function()
 				success:function(response)
 				{
 					dialog_support.hide();
-					table_support.handle_submit('<?php echo site_url('employees'); ?>', response);
+					table_support.handle_submit('<?php echo site_url('branch_managers'); ?>', response);
 				},
 				dataType:'json'
 			});

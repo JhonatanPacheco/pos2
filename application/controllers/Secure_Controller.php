@@ -53,7 +53,7 @@ class Secure_Controller extends CI_Controller
 
 		$data['user_info'] = $logged_in_employee_info;
 		$data['controller_name'] = $module_id;
-
+		$data['branch_office'] = $this->BranchOffice->getAllBranchOffices();
 		$this->load->vars($data);
 	}
 	

@@ -194,6 +194,10 @@ function get_people_manage_table_headers()
 	return transform_headers($headers);
 }
 
+function get_branch_manages_table_headers(){
+	
+}
+
 /*
 Get the html data row for the person
 */
