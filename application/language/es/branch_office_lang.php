@@ -1,7 +1,7 @@
 <?php 
 
 $lang["branch_office"] = "Sucursal";
-$lang["branch_office_no_select"] = "Seleccione Sucursal";
+$lang["branch_office_no_select"] = "----Seleccione Sucursal----";
 $lang["branch_office_add"] = "Agregar Sucursal";
 $lang["branch_office_update"] = "Editar Sucursal";
 $lang["branch_office_no_branch_office_to_display"] = "Sin datos que mostrar.";

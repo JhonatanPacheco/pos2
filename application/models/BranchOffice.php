@@ -166,7 +166,7 @@ class BranchOffice extends CI_Model
 
 	public function getAllBranchOffices(){
 		$suggestions = array();
-		$this->db->select('branch_office_id as id, branch_office_name as value');
+		$this->db->select('branch_office_id as id, branch_office_name as name');
 		$this->db->from('branch_office');
 		
 		$this->db->where('deleted', 0);
@@ -174,7 +174,7 @@ class BranchOffice extends CI_Model
 		
 		foreach($this->db->get()->result_array()  as $r)
 		{
-			$suggestions[$r['id']]=$r['value'];//	$val->value;//array('value' => $row->branch_office_id, 'label' => $row->branch_office_name);
+			$suggestions[$r['id']]=$r['name'];
 		}
 		
 		return $suggestions;

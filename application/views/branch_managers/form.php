@@ -97,22 +97,21 @@
 					</div>
 				</div>
 				
+				<?php $branch_managers_label_attributes = $person_info->person_id == "" ? array('class'=>'required') : array('class'=>'cccccccc'); print_r (array_merge($branch_managers_label_attributes, array())); ?>
 				<div class="form-group form-group-sm">
-					<?php echo form_label($this->lang->line('branch_office'), 'language', array('class' => 'control-label col-xs-3')); ?>
+					<?php echo form_label($this->lang->line('branch_office'), 'branch_office_id_list', array_merge($branch_managers_label_attributes, array('class'=>'control-label col-xs-3'))); ?>
 					<div class='col-xs-8'>
 						<div class="input-group">
-							<?php 
-								$branch_office_list = $branch_office;
-								 
-								$branch_office_list	[''] = $this->lang->line('branch_office_no_select');
-								
-								echo form_dropdown(
-									'branch_office_id',
-									$branch_office_list,
-									($person_info->branch_office_id ? $person_info->branch_office_id :''),
-									array('class' => 'form-control input-sm')
-									);
-							?>
+							 <select name="branch_office_id" id="branch_office_id_list" class="form-control input-sm" style="width:350px">
+								<option value="" <?php  echo $person_info->person_id == "" ?  "selected='selected'":""; ?>" disabled="disabled">
+								<?php echo $this->lang->line('branch_office_no_select'); ?>
+								</option>
+								<?php
+									foreach ($branch_office as $key => $value) {
+										echo "<option value='".$key."'".($person_info->branch_office_id == $key ?  "selected='selected'":'')."  >".$value."</option>";
+									}
+								?>
+							</select>
 						</div>
 					</div>
 				</div>
@@ -226,6 +225,16 @@ $(document).ready(function()
 		{
 			first_name: "required",
 			last_name: "required",
+			branch_office_id_list:{
+				<?php
+				if($person_info->person_id == "")
+				{
+				?>
+				required:true
+				<?php
+				}
+				?>
+			},
 			username:
 			{
 				required:true,
