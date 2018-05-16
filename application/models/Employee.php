@@ -289,7 +289,10 @@ class Employee extends Person
 			$this->db->or_like('username', $search);
 			$this->db->or_like('CONCAT(first_name, " ", last_name)', $search);
 		$this->db->group_end();
-		$this->db->where('deleted', 0);
+		$this->db->where(array(
+			'deleted'=>  0 ,
+			'branch_office_id' => $this->session->userdata('person')->branch_office_id
+			));
 
 		// get_found_rows case
 		if($count_only == TRUE)
@@ -323,6 +326,7 @@ class Employee extends Person
 			{
 				$this->db->where('person_id', $row->person_id);
 				$this->session->set_userdata('person_id', $row->person_id);
+				$this->session->set_userdata('person', $row);
 				$password_hash = password_hash($password, PASSWORD_DEFAULT);
 
 				return $this->db->update('employees', array('hash_version' => 2, 'password' => $password_hash));
@@ -330,6 +334,7 @@ class Employee extends Person
 			elseif($row->hash_version == 2 && password_verify($password, $row->password))
 			{
 				$this->session->set_userdata('person_id', $row->person_id);
+				$this->session->set_userdata('person', $row);
 
 				return TRUE;
 			}

@@ -17,8 +17,9 @@ class Appconfig extends CI_Model
 	public function get_all()
 	{
 		$this->db->from('app_config');
+		$this->db->where('app_config.branch_office_id', $this->session->userdata('person')->branch_office_id);
 		$this->db->order_by('key', 'asc');
-
+		
 		return $this->db->get();
 	}
 
